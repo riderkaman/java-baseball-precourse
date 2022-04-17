@@ -17,4 +17,9 @@ class GameControllerTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @ParameterizedTest
+    @CsvSource(value = {"123:123:3스트라이크"}, delimiter = ':')
+    void numberToGameResultTest(String input, String number, String expected) {
+        assertThat(GameController.numberToGameResult(input, number)).isEqualTo(expected);
+    }
 }
